@@ -33,7 +33,8 @@ def on_progress(stream, chunk, bytes_remaining):
 
 # System Settings
 customtkinter.set_appearance_mode("System")
-customtkinter.set_default_color_theme("blue")
+customtkinter.set_default_color_theme("dark-blue")
+customtkinter.set_appearance_mode("Dark")
 
 # App Frame
 app = customtkinter.CTk()
@@ -41,29 +42,30 @@ app.geometry("720x480")
 app.title("Youtube-MP3-Converter.py")
 
 # Adding UI Elements
-title = customtkinter.CTkLabel(app, text="Insert Youtube Link")
-title.pack(padx=10, pady=10)
+title = customtkinter.CTkLabel(app, text="Insert Youtube Link", font=("Helvetica", 18, 'bold'))
+title.pack(padx=20, pady=20)
 
 # Link Input
 url_var = tkinter.StringVar()
-link = customtkinter.CTkEntry(app, width=350, height=40, textvariable=url_var)
+link = customtkinter.CTkEntry(app, width=500, height=40, textvariable=url_var)
 link.pack()
 
 # Finished Downloading
 finishlabel = customtkinter.CTkLabel(app, text="")
 finishlabel.pack()
 
-# Progress percentage
+# Progress Percentage
 pPercentage = customtkinter.CTkLabel(app, text="0%")
 pPercentage.pack()
-
-progressBar = customtkinter.CTkProgressBar(app, width=400)
-progressBar.set(0)
-progressBar.pack(padx=10, pady=10)
 
 # Download Button
 download = customtkinter.CTkButton(app, text="Download", command=startdownload)
 download.pack(padx=10, pady=10)
+
+# Progress Bar
+progressBar = customtkinter.CTkProgressBar(app, width=400)
+progressBar.set(0)
+progressBar.pack(padx=10, pady=10)
 
 # Run App
 app.mainloop()
